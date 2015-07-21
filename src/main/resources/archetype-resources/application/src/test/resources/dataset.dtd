@@ -1,0 +1,643 @@
+<!ELEMENT dataset (
+    organizations*,
+    notices*,
+    persons*,
+    invite_submit_tender_infos*,
+    apply_infos*,
+    attachments*,
+    apply_attachments*,
+    areas*,
+    assignments*,
+    projects*,
+    contracts*,
+    contract_attachments*,
+    dictionaries*,
+    event_observer*,
+    expenditures*,
+    receipts*,
+    events*,
+    feedback_informations*,
+    invite_tender_infos*,
+    invite_tender_attachments*,
+    licenses*,
+    license_attachments*,
+    material*,
+    material_receive*,
+    notice_attachments*,
+    org_relationship*,
+    permissions*,
+    permission_relation*,
+    person_locations*,
+    project_documents*,
+    proj_doc_attachments*,
+    project_contract_project*,
+    specialties*,
+    work_steps*,
+    project_department_worksteps*,
+    project_progresses*,
+    project_specialties*,
+    project_steps*,
+    project_sub_contract*,
+    project_sub_project*,
+    reason*,
+    roles*,
+    users*,
+    role_assignments*,
+    role_permission*,
+    sc_ct_subcontract_infos*,
+    spc_ct_subcontract_infos*,
+    submit_tender_infos*,
+    submit_tender_attachments*,
+    subproject_material*,
+    subproj_doc_material*,
+    system_messages*,
+    version_updates*,
+    work_items*,
+    workloads*)>
+
+<!ELEMENT organizations EMPTY>
+<!ATTLIST organizations
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    address CDATA #IMPLIED
+    category CDATA #IMPLIED
+    email CDATA #IMPLIED
+    home_page CDATA #IMPLIED
+    name CDATA #IMPLIED
+    tel CDATA #IMPLIED
+    level CDATA #IMPLIED
+    left_value CDATA #IMPLIED
+    right_value CDATA #IMPLIED
+>
+
+<!ELEMENT notices EMPTY>
+<!ATTLIST notices
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    apply_end_date CDATA #IMPLIED
+    apply_start_date CDATA #IMPLIED
+    content CDATA #IMPLIED
+    had_apply CDATA #IMPLIED
+    post_date CDATA #IMPLIED
+    project_name CDATA #IMPLIED
+    submit_tender_date CDATA #IMPLIED
+    owner_id CDATA #IMPLIED
+>
+
+<!ELEMENT persons EMPTY>
+<!ATTLIST persons
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    email CDATA #IMPLIED
+    gender CDATA #IMPLIED
+    mobile CDATA #IMPLIED
+    name CDATA #IMPLIED
+    qq CDATA #IMPLIED
+    tel CDATA #IMPLIED
+    title CDATA #IMPLIED
+    organization_id CDATA #IMPLIED
+>
+
+<!ELEMENT invite_submit_tender_infos EMPTY>
+<!ATTLIST invite_submit_tender_infos
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    discount CDATA #IMPLIED
+    progress CDATA #IMPLIED
+    project_amount CDATA #IMPLIED
+    project_name CDATA #IMPLIED
+    tender_accepted CDATA #IMPLIED
+    notice_id CDATA #REQUIRED
+    owner_id CDATA #IMPLIED
+    principal_id CDATA #IMPLIED
+>
+
+<!ELEMENT apply_infos EMPTY>
+<!ATTLIST apply_infos
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    apply_date CDATA #IMPLIED
+    invite_submit_tender_info_id CDATA #REQUIRED
+>
+
+<!ELEMENT attachments EMPTY>
+<!ATTLIST attachments
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    content_type CDATA #IMPLIED
+    create_time CDATA #IMPLIED
+    file_name CDATA #IMPLIED
+    file_path CDATA #IMPLIED
+    file_size CDATA #IMPLIED
+>
+
+<!ELEMENT apply_attachments EMPTY>
+<!ATTLIST apply_attachments
+    apply_info_id CDATA #REQUIRED
+    attachment_id CDATA #REQUIRED
+>
+
+<!ELEMENT areas EMPTY>
+<!ATTLIST areas
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    code CDATA #IMPLIED
+    parent_code CDATA #IMPLIED
+    name CDATA #IMPLIED
+    level CDATA #IMPLIED
+    left_value CDATA #IMPLIED
+    right_value CDATA #IMPLIED
+>
+
+<!ELEMENT assignments EMPTY>
+<!ATTLIST assignments
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    jobTitle CDATA #IMPLIED
+    organization_id CDATA #IMPLIED
+    person_id CDATA #IMPLIED
+>
+
+<!ELEMENT projects EMPTY>
+<!ATTLIST projects
+    category CDATA #REQUIRED
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    budget CDATA #IMPLIED
+    contract_total CDATA #IMPLIED
+    cost_of_estimated CDATA #IMPLIED
+    estimated_income CDATA #IMPLIED
+    finish_date CDATA #IMPLIED
+    gross_profit_margin CDATA #IMPLIED
+    name CDATA #REQUIRED
+    percentage_of_completion CDATA #IMPLIED
+    predict_finish_date CDATA #IMPLIED
+    project_number CDATA #IMPLIED
+    project_type CDATA #IMPLIED
+    settlement_amount CDATA #IMPLIED
+    start_date CDATA #IMPLIED
+    status CDATA #IMPLIED
+    date_for_apply CDATA #IMPLIED
+    address CDATA #IMPLIED
+    ap_type CDATA #IMPLIED
+    delite_code CDATA #IMPLIED
+    delisting_entrust_type CDATA #IMPLIED
+    focus CDATA #IMPLIED
+    latitude CDATA #IMPLIED
+    longitude CDATA #IMPLIED
+    optical_cable_finish_date CDATA #IMPLIED
+    transnission_open_date CDATA #IMPLIED
+    area_id CDATA #IMPLIED
+    owner_org_id CDATA #IMPLIED
+    owner_contact_id CDATA #IMPLIED
+    responsible_division_id CDATA #IMPLIED
+    designer_org_id CDATA #IMPLIED
+    designer_contact_id CDATA #IMPLIED
+    supervisor_org_id CDATA #IMPLIED
+    supervisor_contact_id CDATA #IMPLIED
+>
+
+<!ELEMENT contracts EMPTY>
+<!ATTLIST contracts
+    category CDATA #REQUIRED
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    contract_name CDATA #IMPLIED
+    discount CDATA #IMPLIED
+    owner_serial_number CDATA #IMPLIED
+    remark CDATA #IMPLIED
+    serial_number CDATA #IMPLIED
+    contract_award_party CDATA #IMPLIED
+    epc_amount CDATA #IMPLIED
+    epc_settlement_amount CDATA #IMPLIED
+    finish_date CDATA #IMPLIED
+    host_settlement_amount CDATA #IMPLIED
+    host_subcontract_percentage CDATA #IMPLIED
+    payment_progress CDATA #IMPLIED
+    start_date CDATA #IMPLIED
+    subcontract_amount CDATA #IMPLIED
+    area_id CDATA #IMPLIED
+    contractor_contact_id CDATA #IMPLIED
+    owner_org_id CDATA #IMPLIED
+    owner_contact_id CDATA #IMPLIED
+    project_id CDATA #REQUIRED
+    frame_contract_id CDATA #IMPLIED
+>
+
+<!ELEMENT contract_attachments EMPTY>
+<!ATTLIST contract_attachments
+    contract_id CDATA #REQUIRED
+    attachment_id CDATA #REQUIRED
+>
+
+<!ELEMENT dictionaries EMPTY>
+<!ATTLIST dictionaries
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    category CDATA #REQUIRED
+    parent_sn CDATA #IMPLIED
+    remark CDATA #IMPLIED
+    serial_number CDATA #REQUIRED
+    sort_order CDATA #IMPLIED
+    text CDATA #REQUIRED
+>
+
+<!ELEMENT event_observer EMPTY>
+<!ATTLIST event_observer
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    event_type CDATA #IMPLIED
+    observer_id CDATA #IMPLIED
+>
+
+<!ELEMENT expenditures EMPTY>
+<!ATTLIST expenditures
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    amount CDATA #IMPLIED
+    expenditure_date CDATA #IMPLIED
+    expenditure_item CDATA #IMPLIED
+    expenditure_type CDATA #IMPLIED
+    to_month CDATA #IMPLIED
+    to_quarter CDATA #IMPLIED
+    remark CDATA #IMPLIED
+    to_year CDATA #IMPLIED
+    project_id CDATA #IMPLIED
+    division_id CDATA #IMPLIED
+    sub_project_id CDATA #IMPLIED
+>
+
+<!ELEMENT receipts EMPTY>
+<!ATTLIST receipts
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    amount CDATA #IMPLIED
+    to_month CDATA #IMPLIED
+    to_quarter CDATA #IMPLIED
+    receipt_date CDATA #IMPLIED
+    receipt_item CDATA #IMPLIED
+    receipt_type CDATA #IMPLIED
+    remark CDATA #IMPLIED
+    to_year CDATA #IMPLIED
+    project_id CDATA #IMPLIED
+    division_id CDATA #IMPLIED
+    sub_project_id CDATA #IMPLIED
+>
+
+<!ELEMENT events EMPTY>
+<!ATTLIST events
+    category CDATA #REQUIRED
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    event_type CDATA #IMPLIED
+    trigger_time CDATA #IMPLIED
+    person_id CDATA #IMPLIED
+    project_id CDATA #IMPLIED
+    expenditure_id CDATA #IMPLIED
+    receipt_id CDATA #IMPLIED
+>
+
+<!ELEMENT feedback_informations EMPTY>
+<!ATTLIST feedback_informations
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    category CDATA #IMPLIED
+    feedback_content CDATA #IMPLIED
+    feedback_date CDATA #IMPLIED
+    person_id CDATA #IMPLIED
+>
+
+<!ELEMENT invite_tender_infos EMPTY>
+<!ATTLIST invite_tender_infos
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    submit_tender_address CDATA #IMPLIED
+    invite_submit_tender_info_id CDATA #REQUIRED
+>
+
+<!ELEMENT invite_tender_attachments EMPTY>
+<!ATTLIST invite_tender_attachments
+    invite_tender_info_id CDATA #REQUIRED
+    attachment_id CDATA #REQUIRED
+>
+
+<!ELEMENT licenses EMPTY>
+<!ATTLIST licenses
+    DTYPE CDATA #REQUIRED
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    authority CDATA #IMPLIED
+    award_date CDATA #IMPLIED
+    common_path CDATA #IMPLIED
+    cred_number CDATA #IMPLIED
+    cred_type CDATA #IMPLIED
+    period_date CDATA #IMPLIED
+    organization_id CDATA #IMPLIED
+    person_id CDATA #IMPLIED
+>
+
+<!ELEMENT license_attachments EMPTY>
+<!ATTLIST license_attachments
+    license_id CDATA #REQUIRED
+    attachment_id CDATA #REQUIRED
+>
+
+<!ELEMENT material EMPTY>
+<!ATTLIST material
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    name CDATA #IMPLIED
+    type CDATA #IMPLIED
+    unit CDATA #IMPLIED
+    unit_name CDATA #IMPLIED
+>
+
+<!ELEMENT material_receive EMPTY>
+<!ATTLIST material_receive
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    model CDATA #IMPLIED
+    quantity CDATA #REQUIRED
+    receive_date CDATA #IMPLIED
+    material_id CDATA #IMPLIED
+    receiver_id CDATA #IMPLIED
+    sub_project_id CDATA #IMPLIED
+>
+
+<!ELEMENT notice_attachments EMPTY>
+<!ATTLIST notice_attachments
+    notice_id CDATA #REQUIRED
+    attachment_id CDATA #REQUIRED
+>
+
+<!ELEMENT org_relationship EMPTY>
+<!ATTLIST org_relationship
+    parent_id CDATA #IMPLIED
+    child_id CDATA #REQUIRED
+>
+
+<!ELEMENT permissions EMPTY>
+<!ATTLIST permissions
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    description CDATA #IMPLIED
+    name CDATA #REQUIRED
+    sort_order CDATA #IMPLIED
+>
+
+<!ELEMENT permission_relation EMPTY>
+<!ATTLIST permission_relation
+    parent_id CDATA #IMPLIED
+    child_id CDATA #REQUIRED
+>
+
+<!ELEMENT person_locations EMPTY>
+<!ATTLIST person_locations
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    latitude CDATA #REQUIRED
+    location_time CDATA #IMPLIED
+    longitude CDATA #REQUIRED
+    parent_organization_id CDATA #IMPLIED
+    person_id CDATA #IMPLIED
+>
+
+<!ELEMENT project_documents EMPTY>
+<!ATTLIST project_documents
+    category CDATA #REQUIRED
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    common_path CDATA #IMPLIED
+    doc_type CDATA #IMPLIED
+    project_id CDATA #IMPLIED
+    sub_project_id CDATA #IMPLIED
+>
+
+<!ELEMENT proj_doc_attachments EMPTY>
+<!ATTLIST proj_doc_attachments
+    doc_id CDATA #REQUIRED
+    attachment_id CDATA #REQUIRED
+>
+
+<!ELEMENT project_contract_project EMPTY>
+<!ATTLIST project_contract_project
+    project_id CDATA #IMPLIED
+    contract_project_id CDATA #REQUIRED
+>
+
+<!ELEMENT specialties EMPTY>
+<!ATTLIST specialties
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    name CDATA #IMPLIED
+    remark CDATA #IMPLIED
+    sort_order CDATA #IMPLIED
+>
+
+<!ELEMENT work_steps EMPTY>
+<!ATTLIST work_steps
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    name CDATA #IMPLIED
+    sort_order CDATA #IMPLIED
+    timeout_days CDATA #IMPLIED
+    specialty_id CDATA #IMPLIED
+>
+
+<!ELEMENT project_department_worksteps EMPTY>
+<!ATTLIST project_department_worksteps
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    timeout_days CDATA #IMPLIED
+    project_department_id CDATA #IMPLIED
+    responsible_id CDATA #IMPLIED
+    workstep_id CDATA #IMPLIED
+>
+
+<!ELEMENT project_progresses EMPTY>
+<!ATTLIST project_progresses
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    action_time CDATA #IMPLIED
+    status CDATA #IMPLIED
+    project_id CDATA #IMPLIED
+    who_do_that CDATA #IMPLIED
+>
+
+<!ELEMENT project_specialties EMPTY>
+<!ATTLIST project_specialties
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    specialty_id CDATA #IMPLIED
+    subproject_id CDATA #REQUIRED
+    team_id CDATA #IMPLIED
+    contact_id CDATA #IMPLIED
+>
+
+<!ELEMENT project_steps EMPTY>
+<!ATTLIST project_steps
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    is_current CDATA #IMPLIED
+    finish_date CDATA #IMPLIED
+    timeout_date CDATA #IMPLIED
+    responsible_id CDATA #IMPLIED
+    subproject_id CDATA #IMPLIED
+    step_id CDATA #IMPLIED
+>
+
+<!ELEMENT project_sub_contract EMPTY>
+<!ATTLIST project_sub_contract
+    contract_project_id CDATA #IMPLIED
+    subproject_id CDATA #REQUIRED
+>
+
+<!ELEMENT project_sub_project EMPTY>
+<!ATTLIST project_sub_project
+    project_id CDATA #IMPLIED
+    subproject_id CDATA #REQUIRED
+>
+
+<!ELEMENT reason EMPTY>
+<!ATTLIST reason
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    reason CDATA #IMPLIED
+    project_id CDATA #IMPLIED
+>
+
+<!ELEMENT roles EMPTY>
+<!ATTLIST roles
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    description CDATA #IMPLIED
+    name CDATA #REQUIRED
+>
+
+<!ELEMENT users EMPTY>
+<!ATTLIST users
+    CATEGORY CDATA #REQUIRED
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    account_expired CDATA #IMPLIED
+    account_locked CDATA #IMPLIED
+    credentials_expired CDATA #IMPLIED
+    account_disabled CDATA #IMPLIED
+    email CDATA #IMPLIED
+    mobile CDATA #IMPLIED
+    password CDATA #IMPLIED
+    phone_number CDATA #IMPLIED
+    username CDATA #REQUIRED
+    person_id CDATA #IMPLIED
+>
+
+<!ELEMENT role_assignments EMPTY>
+<!ATTLIST role_assignments
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    org_id CDATA #IMPLIED
+    role_id CDATA #REQUIRED
+    user_id CDATA #REQUIRED
+>
+
+<!ELEMENT role_permission EMPTY>
+<!ATTLIST role_permission
+    role_id CDATA #REQUIRED
+    permission_id CDATA #REQUIRED
+>
+
+<!ELEMENT sc_ct_subcontract_infos EMPTY>
+<!ATTLIST sc_ct_subcontract_infos
+    sc_id CDATA #REQUIRED
+    construct_team_id CDATA #REQUIRED
+    percentage CDATA #REQUIRED
+    price CDATA #IMPLIED
+    user_price CDATA #IMPLIED
+>
+
+<!ELEMENT spc_ct_subcontract_infos EMPTY>
+<!ATTLIST spc_ct_subcontract_infos
+    spc_id CDATA #REQUIRED
+    construct_team_id CDATA #REQUIRED
+    percentage CDATA #REQUIRED
+    price CDATA #IMPLIED
+    user_price CDATA #IMPLIED
+>
+
+<!ELEMENT submit_tender_infos EMPTY>
+<!ATTLIST submit_tender_infos
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    submit_tender_date CDATA #IMPLIED
+    invite_submit_tender_info_id CDATA #REQUIRED
+>
+
+<!ELEMENT submit_tender_attachments EMPTY>
+<!ATTLIST submit_tender_attachments
+    submit_tender_info_id CDATA #REQUIRED
+    attachment_id CDATA #REQUIRED
+>
+
+<!ELEMENT subproject_material EMPTY>
+<!ATTLIST subproject_material
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    common_path CDATA #IMPLIED
+    subproject_id CDATA #IMPLIED
+>
+
+<!ELEMENT subproj_doc_material EMPTY>
+<!ATTLIST subproj_doc_material
+    subproj_id CDATA #REQUIRED
+    attachment_id CDATA #REQUIRED
+>
+
+<!ELEMENT system_messages EMPTY>
+<!ATTLIST system_messages
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    content CDATA #IMPLIED
+    release_date CDATA #IMPLIED
+    title CDATA #IMPLIED
+    organization_id CDATA #IMPLIED
+>
+
+<!ELEMENT version_updates EMPTY>
+<!ATTLIST version_updates
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    category CDATA #IMPLIED
+    update_describe CDATA #IMPLIED
+    version_code CDATA #IMPLIED
+    attachment_id CDATA #IMPLIED
+>
+
+<!ELEMENT work_items EMPTY>
+<!ATTLIST work_items
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    name CDATA #IMPLIED
+    unit CDATA #IMPLIED
+    specialty_id CDATA #IMPLIED
+>
+
+<!ELEMENT workloads EMPTY>
+<!ATTLIST workloads
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    from_date CDATA #IMPLIED
+    general_worker_workday CDATA #IMPLIED
+    model CDATA #IMPLIED
+    to_month CDATA #IMPLIED
+    output_value CDATA #IMPLIED
+    quantity CDATA #IMPLIED
+    to_quarter CDATA #IMPLIED
+    technician_workday CDATA #IMPLIED
+    to_date CDATA #IMPLIED
+    to_year CDATA #IMPLIED
+    item_id CDATA #IMPLIED
+    project_id CDATA #IMPLIED
+    division_id CDATA #IMPLIED
+    sub_project_id CDATA #IMPLIED
+>
+

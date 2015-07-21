@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+	<display-name>TenThousand To Yuan Tags</display-name>
+	<tlib-version>2.3</tlib-version>
+	<short-name>tenthousand</short-name>
+	<uri>/dayatang-tenthousand</uri>
+	<tag>
+		<name>display</name>
+		<tag-class>com.dayatang.projmgmt.webapp.taglibs.TenThousandDisplayTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>val</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib> 

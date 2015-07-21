@@ -1,0 +1,24 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.driver_class">${symbol_dollar}{jdbc.driverClassName}</property>
+		<property name="connection.url">${symbol_dollar}{jdbc.url}</property>
+		<property name="connection.username">${symbol_dollar}{jdbc.username}</property>
+		<property name="connection.password">${symbol_dollar}{jdbc.password}</property>
+		<property name="current_session_context_class">thread</property>
+		<property name="dialect">${symbol_dollar}{hibernate.dialect}</property>
+		<property name="show_sql">${symbol_dollar}{hibernate.show_sql}</property>
+		<property name="format_sql">${symbol_dollar}{hibernate.format_sql}</property>
+		<property name="use_sql_comments">${symbol_dollar}{hibernate.use.sql.comments}</property>
+		<property name="cache.provider_class">${symbol_dollar}{hibernate.cache.provider_class}</property>
+		<property name="cache.use_second_level_cache">${symbol_dollar}{hibernate.cache.use_second_level_cache}</property>
+		<property name="cache.use_query_cache">${symbol_dollar}{hibernate.cache.use_query_cache}</property>
+	</session-factory>
+</hibernate-configuration>
+

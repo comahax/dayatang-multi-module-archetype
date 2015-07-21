@@ -1,0 +1,289 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>测试页面 </title>
+
+<link href="../../../styles/bootstrap/bootstrap.css" rel="stylesheet" />
+<link href="../../../styles/application.css" rel="stylesheet" />
+
+<style type="text/css">
+	select {
+	width: auto;
+}
+.table th, .table td {
+text-align: center;
+}
+.table td{
+	vertical-align: middle;
+}
+</style>
+
+
+<script type="text/javascript" src="../../jquery/1.7.2/jquery.min.js"></script>
+<script src="../../application.js" type="text/javascript"></script>
+<script src="../../common.js" type="text/javascript"></script>
+<script src="../../numeral/1.3.3/numeral-min.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="../../highcharts/2.3.2/highcharts.js"></script>
+<script type="text/javascript" src="../../bootstrap/2.1/bootstrap-tooltip.js"></script>
+<script type="text/javascript" src="highchart-column.js"></script>
+<script type="text/javascript" src="optPivotTable.js"></script>
+<script src="../../../page/pivot/output-value-pivot-common.js" type="text/javascript"></script>	
+<script type="text/javascript">
+
+/**
+ * 页面加载测试
+ */
+${symbol_dollar}(function() {
+	//获取数据
+	var 
+	url = 'test.json?v='+Math.random(), 
+		//画图所需要的参数结构
+		options = {
+			filters:[],
+// 			columns : ['city'],
+// 			columns : ['city','county'],
+// 			columns : ['province','city','county'],
+			columns : ['responsibleDivision','subProject','city','county'],
+// 			columns : ['province','city','county'],
+// 			rows:['year','season','month'],
+// 			rows:['year','season'],
+// 			rows:['year'],
+			rows:['province','year','season','month'],
+			cal : {
+				//计算的数值列
+				name : 'numericalValue',	
+				 //计算方式
+				type : 'sum'
+			}
+		};
+	var chartTools = new DytChart(url, options);
+	//页面组装需要的数据 
+	var initData = chartTools.getInitData() ;
+	console.log(chartTools.columns);
+	
+// 	var filterPanel = createFilterPanel(initData);
+// 	${symbol_dollar}('${symbol_pound}filterPanel').append(filterPanel);
+	
+// 	var dataArr = chartTools.getData();
+// 	console.log(chartTools.getData());
+	
+	//下拉组件需要使用
+// 	if(initData != null){
+// 		for(var field in initData){
+// 			${symbol_dollar}('div${symbol_pound}filterPanel').append(field + '  =  ' + initData[field].name + ' => ');
+// 			var tempHtml = '';
+// 			var tempData = initData[field].data;
+// 			if(tempData){
+// 				for(var i = 0 ; i < tempData.length ; i++ ){
+// 					tempHtml +=  tempData[i] + (i != tempData.length-1 ? ',' :  '');
+// 				}
+// 			}
+// 			${symbol_dollar}('div${symbol_pound}filterPanel').append(tempHtml+'<br />');
+// 		}
+// 	}
+	
+	//组装表头
+	
+/* 	  if(initData != null){
+		var thead = ${symbol_dollar}('<thead></thead>');
+		var tr = ${symbol_dollar}('<tr></tr>');
+		for(var field in initData){
+			var th = ${symbol_dollar}('<th> <a href="javascript:;" class="' + field + '">' + initData[field].name + '</a></th>').click(function(){
+				//TODO：点击绑定tooltip选择
+			});
+			tr.append(th);
+		}
+		${symbol_dollar}(thead).wrapInner(tr);
+		${symbol_dollar}('div${symbol_pound}container').find('table:eq(0)').prepend(thead);
+	} 
+	
+	if(dataArr != null && dataArr.length > 0){
+		var tbody = ${symbol_dollar}('<tbody></tbody>');
+		${symbol_dollar}.each(dataArr,function(index,item){
+			var tr = ${symbol_dollar}('<tr></tr>');
+			//每一行
+			for(var field in initData){
+				var td = '<td>'+(item[field] == undefined ? '' : item[field])+'</td>';
+				tr.append(${symbol_dollar}(td));
+			}
+			tbody.append(tr);
+		});
+		${symbol_dollar}('div${symbol_pound}container').find('table:eq(0)').append(tbody);
+	} 
+	 */
+	
+	${symbol_dollar}('div${symbol_pound}container').drawTable(options);
+});
+</script>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		筛选条件
+			<div class="well well-small" id="filterPanel">
+			</div>
+		列标签
+			<div class="well well-small" id="columnPanel">
+				<div class="row4">
+					省，市
+				</div>
+			</div>
+		行标签
+			<div class="well well-small" id="rowPanel">
+				<div class="row4">
+					年，月
+				</div>
+			</div>
+		数值计算
+			<div class="well well-small" id="calPanel">
+				<div class="row4">
+					产值
+				</div>
+				求和
+			</div>
+	</div>
+	<div class="row" id="log" style="height: auto;">
+	</div>
+	<div class="alert alert-error" style="display: none;">
+		<span></span>
+		<button type="button" class="close" data-dismiss="alert">×</button>
+	</div>
+	<div class="row">
+		<div id="container">
+		<table class="table table-striped table-bordered">
+		</table>
+		</div>
+	</div>
+	
+	<div class="row">
+			<div id="container">
+				<table class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th colspan="3" rowspan="2">&nbsp;</th>
+							<th colspan="5">广东</th>
+							<th colspan="4">湖南</th>
+							<th rowspan="2">&nbsp;</th>
+						</tr>
+						<tr>
+							<th colspan="2">清远市</th>
+							<th colspan="3">顺德市</th>
+							<th colspan="2">长沙市</th>
+							<th colspan="2">常德市</th>
+						</tr>
+						<tr>
+							<th>年</th>
+							<th>季</th>
+							<th>月</th>
+							<th>县城1</th>
+							<th>县城2</th>
+							<th>县城3</th>
+							<th>县城4</th>
+							<th>县城5</th>
+							<th>县城6</th>
+							<th>县城7</th>
+							<th>县城8</th>
+							<th>县城9</th>
+							<th>总计</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td rowspan="4" style="font-weight: bold;">2010</td>
+							<td rowspan="2" style="font-weight: bold;">1</td>
+							<td>1</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>400</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>400</td>
+						</tr>
+						
+						<tr>
+							<td rowspan="2" style="font-weight: bold;">2</td>
+							<td>3</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>&nbsp;</td>
+							<td>100</td>
+							<td>100</td>
+							<td>400</td>
+						</tr>
+						
+						<tr>
+							<td>4</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>&nbsp;</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>400</td>
+						</tr>
+						
+						
+						<tr>
+							<td rowspan="2" style="font-weight: bold;">2010</td>
+							<td rowspan="2">1</td>
+							<td>1</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>&nbsp;</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>400</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>&nbsp;</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>100</td>
+							<td>400</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+</div>
+</body>
+</html>

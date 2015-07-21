@@ -1,0 +1,26 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<chart caption="MyTitle" xAxisName="X" yAxisName="Y" showValues="1"
+	decimals="0" formatNumberScale="0" legendPosition="BOTTOM"
+	baseFontSize="12">
+	<categories>
+		<category label="Spring" />
+		<category label="Summer" />
+		<category label="Fall" />
+		<category label="Winter" />
+	</categories>
+	<dataset seriesName="Domestic">
+		<set value="1" />
+		<set value="2" />
+		<set value="3" />
+		<set value="4" />
+	</dataset>
+	<dataset seriesName="Overseas">
+		<set value="5" />
+		<set value="6" />
+		<set value="7" />
+		<set value="8" />
+	</dataset>
+</chart>

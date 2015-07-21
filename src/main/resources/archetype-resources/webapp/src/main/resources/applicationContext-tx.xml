@@ -1,0 +1,60 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       http://www.springframework.org/schema/tx 
+       http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+       http://www.springframework.org/schema/aop 
+       http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+       http://www.springframework.org/schema/jee
+       http://www.springframework.org/schema/jee/spring-jee-3.1.xsd">
+
+
+    <!-- transactionManager定义在PersistenceHibernateConfig中 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="find*" read-only="true" />
+			<tx:method name="is*" read-only="true" />
+			<tx:method name="headquarter" read-only="true" />
+			<tx:method name="*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:pointcut id="appOperation"
+			expression="execution(* ${package}.application.ProjApplication.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="appOperation" />
+	</aop:config>
+
+	<aop:config>
+		<aop:pointcut id="securityOperation"
+			expression="execution(* ${package}.application.SecurityApplication.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="securityOperation" />
+	</aop:config>
+
+    <aop:config>
+        <aop:pointcut id="commonsOperation"
+                      expression="execution(* ${package}.application.CommonsApplication.*(..))" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="commonsOperation" />
+    </aop:config>
+
+    <aop:config>
+        <aop:pointcut id="noticeOperation"
+                      expression="execution(* ${package}.application.NoticeApplication.*(..))" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="noticeOperation" />
+    </aop:config><aop:config>
+        <aop:pointcut id="eventOperation"
+                      expression="execution(* ${package}.application.EventApplication.*(..))" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="eventOperation" />
+    </aop:config>
+
+</beans>

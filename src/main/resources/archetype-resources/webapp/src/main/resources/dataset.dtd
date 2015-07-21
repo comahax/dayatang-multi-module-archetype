@@ -1,0 +1,311 @@
+<!ELEMENT dataset (
+    organizations*,
+    persons*,
+    areas*,
+    assignments*,
+    bidding_announcement_apply_info*,
+    bidding_announcement_approve_info*,
+    bidding_announcement_info*,
+    biddings*,
+    dictionaries*,
+    documents*,
+    document_tags*,
+    permissions*,
+    permission_relation*,
+    person_locations*,
+    specialties*,
+    project_budget_info*,
+    project_specialties*,
+    projects*,
+    roles*,
+    users*,
+    role_assignments*,
+    role_permission*,
+    warn_event_trigger_values*,
+    warn_event_subscriptions*,
+    email_infos*
+    )>
+
+<!ELEMENT organizations EMPTY>
+<!ATTLIST organizations
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    address CDATA #IMPLIED
+    disabled CDATA #IMPLIED
+    category CDATA #IMPLIED
+    email CDATA #IMPLIED
+    home_page CDATA #IMPLIED
+    left_value CDATA #IMPLIED
+    level CDATA #IMPLIED
+    name CDATA #IMPLIED
+    right_value CDATA #IMPLIED
+    tel CDATA #IMPLIED
+    internal_category CDATA #IMPLIED
+    owner_category CDATA #IMPLIED
+>
+
+<!ELEMENT persons EMPTY>
+<!ATTLIST persons
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    disabled CDATA #IMPLIED
+    email CDATA #IMPLIED
+    gender CDATA #IMPLIED
+    mobile CDATA #IMPLIED
+    name CDATA #IMPLIED
+    qq CDATA #IMPLIED
+    tel CDATA #IMPLIED
+    title CDATA #IMPLIED
+    organization_id CDATA #IMPLIED
+>
+
+
+
+<!ELEMENT areas EMPTY>
+<!ATTLIST areas
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    code CDATA #IMPLIED
+    left_value CDATA #IMPLIED
+    level CDATA #IMPLIED
+    name CDATA #IMPLIED
+    parent_code CDATA #IMPLIED
+    right_value CDATA #IMPLIED
+>
+
+<!ELEMENT assignments EMPTY>
+<!ATTLIST assignments
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    disabled CDATA #IMPLIED
+    jobTitle CDATA #IMPLIED
+    organization_id CDATA #IMPLIED
+    person_id CDATA #IMPLIED
+>
+ 
+<!ELEMENT bidding_announcement_apply_info EMPTY>
+<!ATTLIST bidding_announcement_apply_info
+	id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    apply_date CDATA #IMPLIED
+	amount_of_earnest_money CDATA #IMPLIED
+	estimated_return_time CDATA #IMPLIED
+	principal_id CDATA #IMPLIED
+>
+
+<!ELEMENT bidding_announcement_approve_info EMPTY>
+<!ATTLIST bidding_announcement_approve_info
+	id CDATA #REQUIRED
+    version CDATA #REQUIRED
+	approveDate CDATA #IMPLIED
+	approved CDATA #IMPLIED
+	approve_comment CDATA #IMPLIED
+	pass CDATA #IMPLIED
+	approve_person_id CDATA #IMPLIED
+>
+
+<!ELEMENT bidding_announcement_info EMPTY>
+<!ATTLIST bidding_announcement_info
+	id CDATA #REQUIRED
+    version CDATA #REQUIRED
+	bidding_date CDATA #IMPLIED
+	content CDATA #IMPLIED
+	release_date CDATA #IMPLIED
+	end_date CDATA #IMPLIED
+	start_date CDATA #IMPLIED
+>
+
+<!ELEMENT biddings EMPTY>
+<!ATTLIST biddings
+	id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    disabled CDATA #IMPLIED
+    biddingStatus CDATA #IMPLIED
+    discount CDATA #IMPLIED
+    project_amount CDATA #IMPLIED
+	project_name CDATA #IMPLIED
+	tender_date CDATA #IMPLIED
+	announcement_info CDATA #IMPLIED
+	apply_info_id CDATA #IMPLIED
+	approve_info_id CDATA #IMPLIED
+	owner_id CDATA #IMPLIED
+	release_person_id CDATA #IMPLIED
+>
+
+<!ELEMENT dictionaries EMPTY>
+<!ATTLIST dictionaries
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    category CDATA #REQUIRED
+    parent_sn CDATA #IMPLIED
+    remark CDATA #IMPLIED
+    serial_number CDATA #REQUIRED
+    sort_order CDATA #IMPLIED
+    text CDATA #REQUIRED
+>
+ 
+<!ELEMENT documents EMPTY>
+<!ATTLIST documents
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    file_name CDATA #IMPLIED
+    relative_path CDATA #IMPLIED
+    file_size CDATA #IMPLIED
+    content_type CDATA #IMPLIED
+    upload_date CDATA #IMPLIED
+>
+
+<!ELEMENT document_tags EMPTY>
+<!ATTLIST document_tags
+    Document_id CDATA #REQUIRED
+    tagKey CDATA #IMPLIED
+    tagValue CDATA #IMPLIED
+>
+
+<!ELEMENT permissions EMPTY>
+<!ATTLIST permissions
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    description CDATA #IMPLIED
+    name CDATA #REQUIRED
+    sort_order CDATA #IMPLIED
+>
+
+<!ELEMENT permission_relation EMPTY>
+<!ATTLIST permission_relation
+    parent_id CDATA #IMPLIED
+    child_id CDATA #REQUIRED
+>
+
+<!ELEMENT person_locations EMPTY>
+<!ATTLIST person_locations
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    latitude CDATA #REQUIRED
+    location_time CDATA #IMPLIED
+    longitude CDATA #REQUIRED
+    parent_organization_id CDATA #IMPLIED
+    person_id CDATA #IMPLIED
+>
+
+<!ELEMENT specialties EMPTY>
+<!ATTLIST specialties
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    disabled CDATA #IMPLIED
+    name CDATA #IMPLIED
+    remark CDATA #IMPLIED
+    sort_order CDATA #IMPLIED
+>
+
+<!ELEMENT project_budget_info EMPTY>
+<!ATTLIST project_budget_info
+    project_id CDATA #REQUIRED
+    budget_value CDATA #REQUIRED
+    expenditure_type CDATA #IMPLIED
+>
+<!ELEMENT project_specialties EMPTY>
+<!ATTLIST project_specialties
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    specialty_id CDATA #IMPLIED
+    subproject_id CDATA #REQUIRED
+    team_id CDATA #IMPLIED
+    contact_id CDATA #IMPLIED
+>
+
+
+  <!ELEMENT projects EMPTY>
+<!ATTLIST projects
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    category CDATA #IMPLIED
+    created_date CDATA #REQUIRED
+    disabled CDATA #IMPLIED
+    name CDATA #IMPLIED
+    pre_finish_date CDATA #IMPLIED
+    project_number CDATA #IMPLIED
+    project_status  CDATA #IMPLIED
+    project_remark CDATA #IMPLIED
+    start_date CDATA #IMPLIED
+    project_estimated_income CDATA #IMPLIED
+    project_gross_profit_margin CDATA #IMPLIED
+    project_gross_margin CDATA #IMPLIED
+    project_type CDATA #IMPLIED
+    creator_id CDATA #IMPLIED
+    project_area_id CDATA #IMPLIED
+    project_responsible_division_id CDATA #IMPLIED
+    owner_org_id CDATA #IMPLIED
+>
+
+<!ELEMENT roles EMPTY>
+<!ATTLIST roles
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    description CDATA #IMPLIED
+    name CDATA #REQUIRED
+>
+
+<!ELEMENT users EMPTY>
+<!ATTLIST users
+    CATEGORY CDATA #REQUIRED
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    account_expired CDATA #IMPLIED
+    account_locked CDATA #IMPLIED
+    credentials_expired CDATA #IMPLIED
+    account_disabled CDATA #IMPLIED
+    email CDATA #IMPLIED
+    mobile CDATA #IMPLIED
+    password CDATA #IMPLIED
+    phone_number CDATA #IMPLIED
+    username CDATA #REQUIRED
+    person_id CDATA #IMPLIED
+>
+
+<!ELEMENT role_assignments EMPTY>
+<!ATTLIST role_assignments
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    org_id CDATA #IMPLIED
+    role_id CDATA #REQUIRED
+    user_id CDATA #REQUIRED
+>
+
+
+<!ELEMENT role_permission EMPTY>
+<!ATTLIST role_permission
+    role_id CDATA #REQUIRED
+    permission_id CDATA #REQUIRED
+>
+
+<!ELEMENT warn_event_trigger_values EMPTY>
+<!ATTLIST warn_event_trigger_values
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    warn_event_type CDATA #IMPLIED
+    trigger_value CDATA #IMPLIED
+    defalut CDATA #IMPLIED
+>
+
+<!ELEMENT warn_event_subscriptions EMPTY>
+<!ATTLIST warn_event_subscriptions
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    warn_event_type CDATA #IMPLIED
+    subscribe_person CDATA #IMPLIED
+>
+
+<!ELEMENT email_infos EMPTY>
+<!ATTLIST email_infos
+    id CDATA #REQUIRED
+    version CDATA #REQUIRED
+    username CDATA #IMPLIED
+    password CDATA #IMPLIED
+    smtp_name CDATA #IMPLIED
+    smtp_port CDATA #IMPLIED
+    is_usable CDATA #IMPLIED
+    is_default CDATA #IMPLIED
+    name CDATA #IMPLIED
+    remark CDATA #IMPLIED
+>

@@ -1,0 +1,78 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.convention.result.path" value="/page" />
+	<constant name="struts.mapper.composite" value="rest,struts" />
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+
+    <constant name="struts.objectFactory.spring.autoWire" value="name" />
+    <constant name="struts.objectFactory.spring.useClassCache" value="true" />
+    <constant name="struts.multipart.parser" value="jakarta" />
+    <!--上传文件的大小:100MB-->
+    <constant name="struts.multipart.maxSize" value="104857600" />
+    <constant name="struts.mapper.class" value="org.apache.struts2.dispatcher.mapper.DefaultActionMapper" />
+    <constant name="struts.action.extension" value="action" />
+    <constant name="struts.serve.static" value="true" />
+    <constant name="struts.convention.relative.result.types" value="dispatcher,freemarker"/>
+    <constant name="struts.serve.static.browserCache" value="true" />
+    <constant name="struts.convention.classes.reload" value="true" />
+    <constant name="struts.freemarker.manager.classname"  value="${package}.webapp.utils.ExtendedFreemarkerManager" />
+    <constant name="struts.tag.altSyntax" value="true" />
+    <constant name="struts.devMode" value="${symbol_dollar}{struts.dev}" />
+    <constant name="struts.i18n.reload" value="true" />
+    <constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.ui.templateDir" value="template" />
+    <constant name="struts.ui.templateSuffix" value="ftl" />
+    <constant name="struts.configuration.xml.reload" value="false" />
+    <constant name="struts.url.http.port" value="80" />
+    <constant name="struts.url.https.port" value="443" />
+    <constant name="struts.custom.i18n.resources" value="ApplicationResources" />
+    <constant name="struts.dispatcher.parametersWorkaround" value="false" />
+    <constant name="struts.xslt.nocache" value="false"/>
+
+	<package name="web" extends="json-default" namespace="/">
+        
+        <result-types>
+            <result-type name="freemarker" class="org.apache.struts2.views.freemarker.FreemarkerResult"></result-type>
+        </result-types>
+
+
+		<interceptors>
+<!--
+			<interceptor name="contextHolder" class="${package}.webapp.interceptor.ContextHolderInterceptor" />
+-->
+			<interceptor name="captchaValidationInterceptor" class="${package}.webapp.interceptor.CaptchaVerifyInterceptor" />
+			<interceptor-stack name="webdefault">
+				<interceptor-ref name="defaultStack" />
+				<!--<interceptor-ref name="contextHolder" />-->
+			</interceptor-stack>
+			<!--<interceptor-stack name="captchaValidation">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="captchaValidationInterceptor" />
+			</interceptor-stack>-->
+		</interceptors>
+
+		<default-interceptor-ref name="webdefault" />
+
+       
+
+        <global-results>
+			<result name="login" type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">login</param>
+			</result>
+			<result name="unauthorized">/worktable</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="login" exception="org.apache.shiro.authz.UnauthenticatedException" />
+			<exception-mapping result="unauthorized" exception="org.apache.shiro.authz.UnauthorizedException" />
+		</global-exception-mappings>
+	</package>
+</struts>
